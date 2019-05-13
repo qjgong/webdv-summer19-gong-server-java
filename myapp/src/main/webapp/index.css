@@ -1,7 +1,22 @@
+
+.navbar {
+    justify-content: unset;
+}
+
+.navbar-dark .navbar-toggler {
+    border-color: transparent;
+}
+
+body {
+    background-color: #e9ecef;
+}
+
 input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color: white;
     font-size: 18px;
     font-weight: bold;
+
+
 }
 
 input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
@@ -22,35 +37,80 @@ input:-ms-input-placeholder { /* Internet Explorer 10-11 */
     font-weight: bold;
 }
 
+
+.input-group {
+    width: 70%;
+}
+
 .form-control {
     background-color: lightskyblue;
-    border-color:  lightskyblue;
-    color: white;
+    border-color: lightskyblue;
+    padding-left: 10px;
+    margin-left: 0;
+    font-style: italic;
 }
-.btn{
-    display:block;
+
+
+.btn {
+    display: block;
     height: 40px;
     width: 40px;
     border-radius: 50%;
     border: 1px solid red;
+    margin-left: 20px;
 
 }
-.btn > i{
+
+.btn > i {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+button {
+    border-color: transparent;
+}
+
+.fa-caret-down:before {
+    margin-left: 5px;
+}
+
 .floating-button {
     position: fixed;
-    bottom: 10%;
+    bottom: 30%;
     right: 10%;
     text-align: center;
 }
 
+.table > thead {
+    width: max-content;
+    border-bottom: grey;
+}
+
+.table > tbody > tr {
+    background-color: white;
+}
+
+.table > tbody > tr.row1 {
+    background-color: transparent;
+}
+
+.table > tbody > tr.row2 {
+    background-color: transparent;
+}
 
 .table > tbody > tr > td > i {
     margin-right: 5px;
+    font-size: 20px;
+}
+
+.table > tbody > tr > td {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.fa-users {
+    margin-left: 10px;
 }
 
 #small {
