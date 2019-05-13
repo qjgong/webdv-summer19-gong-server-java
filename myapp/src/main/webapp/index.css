@@ -1,0 +1,50 @@
+input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.form-control {
+    background-color: lightskyblue;
+    border-color:  lightskyblue;
+    color: white;
+}
+.btn{
+    display:block;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid red;
+
+}
+.btn i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.floating-button {
+    position: fixed;
+    bottom: 10%;
+    right: 10%;
+    text-align: center;
+}
+
