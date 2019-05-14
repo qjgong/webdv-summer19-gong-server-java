@@ -75,7 +75,7 @@ button {
     margin-left: 5px;
 }
 
-.floating-button {
+.floating {
     position: fixed;
     bottom: 30%;
     right: 10%;
