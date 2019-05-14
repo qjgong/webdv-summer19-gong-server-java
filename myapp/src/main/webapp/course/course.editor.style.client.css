@@ -1,0 +1,102 @@
+
+.container {
+        max-width: inherit;
+    }
+.navbar {
+    justify-content: unset;
+}
+
+
+.list-group>a{
+    color:white;
+    font-size: 15px;
+}
+
+.list-group-item.active{
+    background-color: blue;
+}
+.btn-dark{
+    width: 10%;
+    text-align: center;
+}
+
+
+.btn-bar{
+    float:right;
+    padding: 0px;
+    background-color: transparent;
+    color:white;
+    border-color: transparent;
+}
+.btn-sm.active{
+    border-color: transparent;
+    padding: 0px;
+}
+
+.title-style{
+    text-align:center;
+    font-size: 20px;
+    font-weight: bold;
+    color: blue;
+}
+.fa-plus{
+    height:22px;
+}
+
+
+#topic.nav-pills > li > a {
+    padding-top: 2px;
+    padding-bottom: 3px;
+    background: #788794; /* your preferred color */
+    border-radius: 0px;
+    color: white;
+    font-weight: bold;
+}
+
+#topic.nav-pills > li > a.active {
+    background: #343a40;
+}
+
+#topic.nav-pills > li {
+    margin-right: 10px;
+}
+
+.navbar-nav > li {
+    margin-right:15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.navbar-nav > li.active {
+    background-color: black;
+}
+
+.navbar-nav > li > a {
+    font-weight: bold;
+}
+
+.widget.ml-sm-2{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 0px;
+}
+
+
+.col-sm-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    max-height: fit-content;
+}
+
+.floating-button {
+    position: fixed;
+    bottom: 10%;
+    right: 10%;
+    text-align: center;
+
+}
+
+.fa-plus{
+   padding-top: 4px;
+}
