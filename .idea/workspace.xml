@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="784f0235-e108-42d1-aee8-8e86aec91577" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/user-admin.style.client.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/user-admin.style.client.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/user-admin.template.client.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/user-admin.template.client.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/admin/user-admin.template.client.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1635">
-              <caret line="109" column="27" selection-start-line="109" selection-start-column="27" selection-end-line="109" selection-end-column="27" />
+            <state relative-caret-position="135">
+              <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
               <folding>
                 <element signature="e#824#830#1" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#td#5;n#tr#1;n#thead#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -69,7 +71,11 @@
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/admin/user-admin.style.client.css">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -149,10 +155,11 @@
         <option value="$PROJECT_DIR$/src/main/webapp/login/login.template.client.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/course/course.editor.template.client.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/course/course.editor.style.client.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/admin/user-admin.template.client.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/models/user.model.client.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/admin/user-admin.component.client.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/services/user.service.client.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/admin/user-admin.template.client.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/admin/user-admin.style.client.css" />
       </list>
     </option>
   </component>
@@ -271,7 +278,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558039852548" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558040130788" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -324,7 +331,7 @@
       <workItem from="1557845113686" duration="28000" />
       <workItem from="1557845673870" duration="298000" />
       <workItem from="1557856239728" duration="3020000" />
-      <workItem from="1558034403247" duration="2636000" />
+      <workItem from="1558034403247" duration="2894000" />
     </task>
     <task id="LOCAL-00001" summary="update home page">
       <created>1557358108695</created>
@@ -494,14 +501,22 @@
       <option name="project" value="LOCAL" />
       <updated>1558039677145</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="add user-admin.style.client.css">
+      <created>1558039876176</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1558039876176</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45678000" />
+    <option name="totallyTimeSpent" value="45936000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33261803" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -568,7 +583,8 @@
     <MESSAGE value="add user-addmin.component.client.js" />
     <MESSAGE value="add user-admin.component.client.js" />
     <MESSAGE value="add user.service.client.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="add user.service.client.js" />
+    <MESSAGE value="add user-admin.style.client.css" />
+    <option name="LAST_COMMIT_MESSAGE" value="add user-admin.style.client.css" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pom.xml">
@@ -688,22 +704,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/admin/user-admin.template.client.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1635">
-          <caret line="109" column="27" selection-start-line="109" selection-start-column="27" selection-end-line="109" selection-end-column="27" />
-          <folding>
-            <element signature="e#824#830#1" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#td#5;n#tr#1;n#thead#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#1936#1942#1" expanded="true" />
-            <element signature="e#1943#1949#1" expanded="true" />
-            <element signature="e#2449#2455#1" expanded="true" />
-            <element signature="e#3482#3488#1" expanded="true" />
-            <element signature="e#3989#3995#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/models/user.model.client.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
@@ -722,6 +722,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/admin/user-admin.template.client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+          <folding>
+            <element signature="e#824#830#1" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#5;n#tr#1;n#thead#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#1936#1942#1" expanded="true" />
+            <element signature="e#1943#1949#1" expanded="true" />
+            <element signature="e#2449#2455#1" expanded="true" />
+            <element signature="e#3482#3488#1" expanded="true" />
+            <element signature="e#3989#3995#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/admin/user-admin.style.client.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
         </state>
       </provider>
     </entry>
