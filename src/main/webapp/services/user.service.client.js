@@ -27,12 +27,40 @@ function AdminUserServiceClient() {
     }
 
     function findUserById(userId, callback) {
+        return fetch('http://localhost:8080/users/{userID}', {
+            method: 'GET',
+            body: JSON.stringify(userId),
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(function (response) {
+            return response.json()
+        })
     }
 
     function updateUser(userId, user, callback) {
+        return fetch('http://localhost:8080/users/{userID}', {
+            method: 'PUT',
+            body: JSON.stringify(userId),
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(function (response) {
+            return response.json()
+        })
+
     }
 
     function deleteUser(userId, callback) {
+        return fetch('http://localhost:8080/users/{userID}', {
+            method: 'DELETE',
+            body: JSON.stringify(userId),
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(function (response) {
+            return response.json()
+        })
     }
 }
 
