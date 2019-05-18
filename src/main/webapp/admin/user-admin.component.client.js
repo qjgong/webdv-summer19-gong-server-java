@@ -3,15 +3,19 @@
     var rowTemplate;
     var tbody;
     var createUserBtn;
+    var deleteUserBtn;
 
     jQuery(main);
 
     function main() {
         rowTemplate = jQuery('.wbdv-template');
         createUserBtn = jQuery('.wbdv-create');
+        deleteUserBtn = jQuery('.wbdv-remove');
+
         tbody = jQuery('tbody');
 
         createUserBtn.click(createUser);
+        deleteUserBtn.click(deleteUser);
 
         userService
             .findAllUsers()
@@ -38,6 +42,7 @@
             firstName: firstName,
             lastName: lastName,
             role: role,
+
         }
 
         userService
@@ -46,16 +51,17 @@
     }
 
     function findAllUsers() {
-        return fetch("http://localhost:8080/users")
-            .then(function (response) {
-                return response.json()
-            })
+
     }
 
     function findUserById() {
+
     }
 
-    function deleteUser() {
+    function deleteUser(event) {
+        currentTarget = $(event.currentTarget)
+        var tr = currentTarget.parent().parent().parent();
+        tr.remove();
     }
 
     function selectUser() {
@@ -77,7 +83,7 @@
             rowClone.find('.wbdv-first-name').html(user.firstName);
             rowClone.find('.wbdv-last-name').html(user.lastName);
             rowClone.find('.wbdv-role').html(user.role);
-
+            rowClone.find('.wbdv-remove').click(deleteUser);
 
             tbody.append(rowClone);
         }
