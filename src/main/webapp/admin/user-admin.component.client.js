@@ -4,6 +4,7 @@
     var tbody;
     var createUserBtn;
     var deleteUserBtn;
+    var editUserBtn;
 
     jQuery(main);
 
@@ -11,11 +12,13 @@
         rowTemplate = jQuery('.wbdv-template');
         createUserBtn = jQuery('.wbdv-create');
         deleteUserBtn = jQuery('.wbdv-remove');
+        editUserBtn =jQuery('.wbdv-edit');
 
         tbody = jQuery('tbody');
 
         createUserBtn.click(createUser);
         deleteUserBtn.click(deleteUser);
+        editUserBtn.click(renderUser);
 
         userService
             .findAllUsers()
@@ -71,13 +74,20 @@
         tr.remove();
     }
 
-    function selectUser() {
-    }
 
     function updateUser() {
+
     }
 
     function renderUser(user) {
+        currentTarget = $(user.currentTarget);
+        const tr = currentTarget.parent().parent().parent().clone();
+
+
+        $('#usernameFld').val( tr.find('.wbdv-username').html());
+        $('#firstNameFld').val(tr.find('.wbdv-first-name').html());
+        $('#lastNameFld').val(tr.find('.wbdv-last-name').html());
+        $('#roleFld').val(tr.find('.wbdv-role').html());
     }
 
     function renderUsers(users) {
@@ -91,7 +101,7 @@
             rowClone.find('.wbdv-last-name').html(user.lastName);
             rowClone.find('.wbdv-role').html(user.role);
             rowClone.find('.wbdv-remove').click(deleteUser);
-
+            rowClone.find('.wbdv-edit').click(renderUser);
             tbody.append(rowClone);
         }
 
