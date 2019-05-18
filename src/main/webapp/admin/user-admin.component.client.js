@@ -2,6 +2,7 @@
     var userService = new AdminUserServiceClient();
     var rowTemplate;
     var tbody;
+    var input;
     var createUserBtn;
     var deleteUserBtn;
     var editUserBtn;
@@ -17,7 +18,7 @@
         editUserBtn = jQuery('.wbdv-edit');
         findUserBtn = jQuery('.wbdv-search');
         updateUserBtn = jQuery('.wbdv-update');
-
+        input=jQuery('input');
         tbody = jQuery('tbody');
 
         createUserBtn.click(createUser);
@@ -108,7 +109,7 @@
             lastName: lastName,
             role: role
         }
-        userService.updateUser(id, user).then(renderUsers);
+        userService.updateUser(id, user).then(findAllUsers);
     }
 
     function renderUser(user) {
@@ -147,6 +148,12 @@
     }
 
     function renderUsers(users) {
+
+        $('#usernameFld').val("")
+        $('#firstNameFld').val("")
+        $('#passwordFld').val("")
+        $('#lastNameFld').val("")
+        $('#roleFld').val("")
 
         tbody.empty();
         for (var u in users) {
