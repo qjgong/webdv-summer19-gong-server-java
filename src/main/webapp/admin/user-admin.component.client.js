@@ -5,6 +5,7 @@
     var createUserBtn;
     var deleteUserBtn;
     var editUserBtn;
+    var findUserBtn;
 
     jQuery(main);
 
@@ -13,12 +14,15 @@
         createUserBtn = jQuery('.wbdv-create');
         deleteUserBtn = jQuery('.wbdv-remove');
         editUserBtn =jQuery('.wbdv-edit');
+        findUserBtn=jQuery('.wbdv-search');
 
         tbody = jQuery('tbody');
+
 
         createUserBtn.click(createUser);
         deleteUserBtn.click(deleteUser);
         editUserBtn.click(renderUser);
+        findUserBtn.click(findUserById);
 
         userService
             .findAllUsers()
@@ -64,14 +68,21 @@
     }
 
     function findUserById() {
-        userService.findUserById().then(renderUsers)
+        currentTarget = $(event.currentTarget)
+        const id = currentTarget.attr('id')
+
+      userService.findUserById(id).then(renderUser);
+
 
     }
 
     function deleteUser(event) {
-        currentTarget = $(event.currentTarget)
-        var tr = currentTarget.parent().parent().parent();
-        tr.remove();
+        deleteBtn = $(event.currentTarget)
+        const id = deleteBtn.attr("id");
+       userService.deleteUser(id).then(findAllUsers);
+
+
+
     }
 
 
@@ -80,6 +91,20 @@
     }
 
     function renderUser(user) {
+       /*
+        tbody.empty();
+        const rowClone = rowTemplate.clone();
+        rowClone.removeClass('wbdv-hidden');
+        rowClone.find('.wbdv-username').html(user.username);
+        rowClone.find('.wbdv-first-name').html(user.firstName);
+        rowClone.find('.wbdv-last-name').html(user.lastName);
+        rowClone.find('.wbdv-role').html(user.role);
+        rowClone.find('.wbdv-remove').click(deleteUser);
+        //rowClone.find('.wbdv-edit').click(updateUser);
+
+        tbody.append(rowClone);
+
+*/
         currentTarget = $(user.currentTarget);
         const tr = currentTarget.parent().parent().parent().clone();
 
@@ -91,16 +116,20 @@
     }
 
     function renderUsers(users) {
+
         tbody.empty();
         for (var u in users) {
             const user = users[u];
             const rowClone = rowTemplate.clone();
-            rowClone.removeClass('wbdv-hidden');
+            rowClone.removeClass('webdv-hidden');
             rowClone.find('.wbdv-username').html(user.username);
+            rowClone.find('.wbdv-password').html(user.password);
             rowClone.find('.wbdv-first-name').html(user.firstName);
             rowClone.find('.wbdv-last-name').html(user.lastName);
             rowClone.find('.wbdv-role').html(user.role);
-            rowClone.find('.wbdv-remove').click(deleteUser);
+            const deleteUserBtn = rowClone.find('.wbdv-remove');
+            deleteUserBtn.click(deleteUser);
+            deleteUserBtn.attr("id",user.id);
             rowClone.find('.wbdv-edit').click(renderUser);
             tbody.append(rowClone);
         }

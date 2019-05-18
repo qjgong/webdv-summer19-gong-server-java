@@ -27,9 +27,9 @@ function AdminUserServiceClient() {
     }
 
     function findUserById(userId, callback) {
-        return fetch('http://localhost:8080/users/{userID}', {
+        return fetch('http://localhost:8080/users/'+userId, {
             method: 'GET',
-            body: JSON.stringify(userId),
+           // body: JSON.stringify(userId),
             headers: {
                 'content-type': 'application/json'
             }
@@ -39,7 +39,7 @@ function AdminUserServiceClient() {
     }
 
     function updateUser(userId, user, callback) {
-        return fetch('http://localhost:8080/users/{userID}', {
+        return fetch('http://localhost:8080/users/userId', {
             method: 'PUT',
             body: JSON.stringify(userId),
             headers: {
@@ -52,7 +52,7 @@ function AdminUserServiceClient() {
     }
 
     function deleteUser(userId, callback) {
-        return fetch('http://localhost:8080/users/{userID}', {
+        return fetch('http://localhost:8080/users/'+userId, {
             method: 'DELETE',
             body: JSON.stringify(userId),
             headers: {
