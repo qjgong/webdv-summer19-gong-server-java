@@ -61,6 +61,7 @@
     }
 
     function findUserById() {
+        userService.findUserById().then(renderUsers)
 
     }
 
