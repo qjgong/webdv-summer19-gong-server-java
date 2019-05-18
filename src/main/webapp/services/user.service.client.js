@@ -39,9 +39,10 @@ function AdminUserServiceClient() {
     }
 
     function updateUser(userId, user, callback) {
-        return fetch('http://localhost:8080/users/userId', {
+        debugger;
+        return fetch('http://localhost:8080/users/'+userId, {
             method: 'PUT',
-            body: JSON.stringify(userId),
+           body: JSON.stringify(user),
             headers: {
                 'content-type': 'application/json'
             }

@@ -49,6 +49,14 @@ public class User {
     this.role = role;
   }
 
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
 
   public User(long id, String username, String password,String firstName, String lastName, String role) {
     super();
@@ -61,7 +69,7 @@ public class User {
   }
 
   public User() {
-    super();
+
   }
 
 }
