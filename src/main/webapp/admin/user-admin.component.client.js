@@ -29,12 +29,12 @@
         var lastNameFld = $('#lastNameFld');
         var roleFld = $('#roleFld');
 
-
         var username = usernameFld.val();
         var password = passwordFld.val();
         var firstName = firstNameFld.val();
         var lastName = lastNameFld.val();
         var role = roleFld.val();
+        var id = getRandomInt(0, 999);
 
         var user = {
             username: username,
@@ -42,7 +42,7 @@
             firstName: firstName,
             lastName: lastName,
             role: role,
-
+            id: id,
         }
 
         userService
@@ -50,8 +50,14 @@
             .then(renderUsers)
     }
 
-    function findAllUsers() {
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 
+    function findAllUsers() {
+        userService.findAllUsers().then(renderUsers)
     }
 
     function findUserById() {
