@@ -27,20 +27,20 @@ public class UserController {
   // CRUD
 
   // POST - Creating
-  @PostMapping("/users")
+  @PostMapping("/api/users")
   public List<User> createUser(@RequestBody User user) {
     users.add(user);
     return users;
   }
 
   // GET - Reading
-  @GetMapping("/users")
+  @GetMapping("/api/users")
   public List<User> findAllUsers() {
     return users;
   }
 
 
-  @GetMapping("/users/{userId}")
+  @GetMapping("/api/users/{userId}")
   public User findUserById(@PathVariable("userId") long id) {
 
     for (User user : users) {
@@ -53,8 +53,8 @@ public class UserController {
 
 
   // DELETE - Deleting
-  @DeleteMapping("/users/{userId}")
-  public List<User> deleteUser(@PathVariable("userId") long id) {
+  @DeleteMapping("/api/users/{userId}")
+  public List<User> deleteUser(@PathVariable("userId") @RequestBody long id) {
     for (User user : users) {
       if (user.getId() == id) {
         users.remove(user);
@@ -64,7 +64,7 @@ public class UserController {
   }
 
   // UPDATE - Updating
-  @PutMapping("/users/{userId}")
+  @PutMapping("/api/users/{userId}")
   public List<User> updateUser(@PathVariable("userId") long id, @RequestBody User user) {
 
     for (User currentUser : users) {
@@ -79,4 +79,37 @@ public class UserController {
     }
     return users;
   }
+
+  @PostMapping(value="/api/users/select/")
+  public List<User> searchUser(@RequestBody User user) {
+    List<User> selectedUsers=new ArrayList<User>();
+    selectedUsers.addAll(users);
+    if (!user.getFirstName().isEmpty()) {
+      for (User element : selectedUsers) {
+        if (!element.getFirstName().equals(user.getFirstName()))
+          selectedUsers.remove(element);
+      }
+    }
+    if (!user.getLastName().isEmpty()) {
+      for (User element : selectedUsers) {
+        if (!element.getLastName().equals(user.getLastName()))
+          selectedUsers.remove(element);
+      }
+    }
+
+    if (!user.getRole().isEmpty()) {
+      for (User element : selectedUsers) {
+        if (!element.getRole().equals(user.getRole()))
+          selectedUsers.remove(element);
+      }
+    }
+    if (!user.getUsername().isEmpty()) {
+      for (User element : selectedUsers) {
+        if (!element.getUsername().equals(user.getUsername()))
+          selectedUsers.remove(element);
+      }
+    }
+    return selectedUsers;
+  }
+
 }

@@ -2,7 +2,6 @@
     var userService = new AdminUserServiceClient();
     var rowTemplate;
     var tbody;
-    var input;
     var createUserBtn;
     var deleteUserBtn;
     var editUserBtn;
@@ -18,15 +17,13 @@
         editUserBtn = jQuery('.wbdv-edit');
         findUserBtn = jQuery('.wbdv-search');
         updateUserBtn = jQuery('.wbdv-update');
-        input=jQuery('input');
         tbody = jQuery('tbody');
 
         createUserBtn.click(createUser);
         deleteUserBtn.click(deleteUser);
         editUserBtn.click(selectUser);
-        findUserBtn.click(findUserById);
+        findUserBtn.click(searchUser);
         updateUserBtn.click(updateUser);
-
 
         userService
             .findAllUsers()
@@ -72,10 +69,9 @@
     }
 
     function findUserById() {
-        currentTarget = $(event.currentTarget);
-        const id = currentTarget.id
-        return userService.findUserById(event).then(response => response);
-
+        deleteBtn = $(event.currentTarget);
+        const id = deleteBtn.attr("id");
+        return userService.findUserById(event)
     }
 
     function deleteUser(event) {
@@ -102,7 +98,7 @@
         var role = roleFld.val();
 
         var user = {
-            id:id,
+            id: id,
             username: username,
             password: password,
             firstName: firstName,
@@ -128,7 +124,6 @@
 
  */
 
-
         $('#usernameFld').val(user.username)
         $('#firstNameFld').val(user.firstName)
         $('#passwordFld').val(user.password)
@@ -143,7 +138,6 @@
         const id = selectBtn.attr('id');
         updateUserBtn.click(updateUser)
         user = userService.findUserById(id).then(renderUser)
-
 
     }
 
@@ -174,4 +168,23 @@
             tbody.append(rowClone);
         }
     }
+
+    function searchUser() {
+        debugger;
+        var username = $('#usernameFld').val();
+        var password = $('#passwordFld').val();
+        var firstName = $('#firstNameFld').val();
+        var lastName = $('#lastNameFld').val();
+        var role = $('#roleFld').val();
+        var user = {
+            id:999,
+            username: username,
+            password: password,
+            firstName: firstName,
+            lastName: lastName,
+            role: role
+        }
+        userService.searchUser(user).then(renderUsers)
+    }
+
 })();
