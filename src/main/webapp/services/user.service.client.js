@@ -4,33 +4,31 @@ function AdminUserServiceClient() {
     this.findUserById = findUserById;
     this.deleteUser = deleteUser;
     this.updateUser = updateUser;
-    this.searchUser=searchUser;
-    this.url = 'https://whispering-ravine-77480.herokuapp.com/api/users';
-    var self = this;
+    this.searchUser = searchUser;
+
+    let url = document.location.origin + "/api/users";
 
     function createUser(user, callback) {
-        return fetch('https://whispering-ravine-77480.herokuapp.com/api/users', {
+        return fetch(url, {
             method: 'POST',
             body: JSON.stringify(user),
             headers: {
                 'content-type': 'application/json'
             }
-        }).then(function (response) {
-            return response.json()
-        })
+        });
     }
 
     function findAllUsers(callback) {
-        return fetch('https://whispering-ravine-77480.herokuapp.com/api/users')
+        return fetch(url)
             .then(function (response) {
                 return response.json()
             })
     }
 
     function findUserById(userId, callback) {
-        return fetch('https://whispering-ravine-77480.herokuapp.com/api/users/'+userId, {
+        return fetch(url + '/' + userId, {
             method: 'GET',
-           // body: JSON.stringify(userId),
+            // body: JSON.stringify(userId),
             headers: {
                 'content-type': 'application/json'
             }
@@ -41,32 +39,29 @@ function AdminUserServiceClient() {
 
     function updateUser(userId, user, callback) {
 
-        return fetch('https://whispering-ravine-77480.herokuapp.com/api/users/'+userId, {
+        return fetch(url + '/' + userId, {
             method: 'PUT',
-           body: JSON.stringify(user),
+            body: JSON.stringify(user),
             headers: {
                 'content-type': 'application/json'
             }
-        }).then(function (response) {
-            return response.json()
-        })
+        });
 
     }
 
     function deleteUser(userId, callback) {
-        return fetch('https://whispering-ravine-77480.herokuapp.com/api/users/'+userId, {
+        return fetch(url + '/' + userId, {
             method: 'DELETE',
             body: JSON.stringify(userId),
             headers: {
                 'content-type': 'application/json'
             }
-        }).then(function (response) {
-            return response.json()
-        })
+        });
     }
-    function searchUser(user,callback) {
-        return fetch('https://whispering-ravine-77480.herokuapp.com/api/users/select',{
-            method:'POST',
+
+    function searchUser(user, callback) {
+        return fetch(url, {
+            method: 'POST',
             body: JSON.stringify(user),
             headers: {
                 'content-type': 'application/json'

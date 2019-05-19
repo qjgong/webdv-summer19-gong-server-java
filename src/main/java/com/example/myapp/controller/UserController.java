@@ -3,6 +3,7 @@ package com.example.myapp.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,9 +29,11 @@ public class UserController {
 
   // POST - Creating
   @PostMapping("/api/users")
-  public List<User> createUser(@RequestBody User user) {
+  public void createUser(@RequestBody User user) {
+    long generatedLong = new Random().nextInt();
+    user.setId(generatedLong);
     users.add(user);
-    return users;
+
   }
 
   // GET - Reading
@@ -54,18 +57,13 @@ public class UserController {
 
   // DELETE - Deleting
   @DeleteMapping("/api/users/{userId}")
-  public List<User> deleteUser(@PathVariable("userId") @RequestBody long id) {
-    for (User user : users) {
-      if (user.getId() == id) {
-        users.remove(user);
-      }
-    }
-    return users;
+  public void deleteUser(@PathVariable("userId") @RequestBody long id) {
+    users.removeIf(x -> x.getId() == id);
   }
 
   // UPDATE - Updating
   @PutMapping("/api/users/{userId}")
-  public List<User> updateUser(@PathVariable("userId") long id, @RequestBody User user) {
+  public void updateUser(@PathVariable("userId") long id, @RequestBody User user) {
 
     for (User currentUser : users) {
 
@@ -77,12 +75,11 @@ public class UserController {
         currentUser.setPassword(user.getPassword());
       }
     }
-    return users;
   }
 
-  @PostMapping(value="/api/users/select/")
+  @PostMapping(value = "/api/users/select/")
   public List<User> searchUser(@RequestBody User user) {
-    List<User> selectedUsers=new ArrayList<User>();
+    List<User> selectedUsers = new ArrayList<User>();
     selectedUsers.addAll(users);
     if (!user.getFirstName().isEmpty()) {
       for (User element : selectedUsers) {
