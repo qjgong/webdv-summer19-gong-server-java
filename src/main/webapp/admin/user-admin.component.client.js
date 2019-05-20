@@ -38,13 +38,17 @@
     }
 
     function createUser() {
+        let roleVal="FACULTY";
+        if(roleFld.val() !== null){
+            roleVal = roleFld.val()
+        }
 
         userService.createUser({
                                    username: usernameFld.val(),
                                    password: passwordFld.val(),
                                    firstName: firstnameFld.val(),
                                    lastName: lastNameFld.val(),
-                                   role: roleFld.val()
+                                   role: roleVal
                                })
             .then(findAllUsers)
     }
@@ -118,7 +122,6 @@
     }
 
     function searchUser() {
-        debugger;
         let roleVal="";
         if(roleFld.val() !== null){
             roleVal = roleFld.val()
