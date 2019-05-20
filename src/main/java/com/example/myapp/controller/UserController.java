@@ -77,34 +77,22 @@ public class UserController {
     }
   }
 
-  @PostMapping(value = "/api/users/select/")
+  @PostMapping("/api/users/search")
   public List<User> searchUser(@RequestBody User user) {
-    List<User> selectedUsers = new ArrayList<User>();
+    List<User> selectedUsers = new ArrayList<>();
     selectedUsers.addAll(users);
     if (!user.getFirstName().isEmpty()) {
-      for (User element : selectedUsers) {
-        if (!element.getFirstName().equals(user.getFirstName()))
-          selectedUsers.remove(element);
-      }
+      selectedUsers.removeIf(x -> !x.getFirstName().equals(user.getFirstName()));
     }
     if (!user.getLastName().isEmpty()) {
-      for (User element : selectedUsers) {
-        if (!element.getLastName().equals(user.getLastName()))
-          selectedUsers.remove(element);
-      }
+      selectedUsers.removeIf(x -> !x.getLastName().equals(user.getLastName()));
     }
 
     if (!user.getRole().isEmpty()) {
-      for (User element : selectedUsers) {
-        if (!element.getRole().equals(user.getRole()))
-          selectedUsers.remove(element);
-      }
+      selectedUsers.removeIf(x -> !x.getRole().equals(user.getRole()));
     }
     if (!user.getUsername().isEmpty()) {
-      for (User element : selectedUsers) {
-        if (!element.getUsername().equals(user.getUsername()))
-          selectedUsers.remove(element);
-      }
+      selectedUsers.removeIf(x -> !x.getUsername().equals(user.getUsername()));
     }
     return selectedUsers;
   }

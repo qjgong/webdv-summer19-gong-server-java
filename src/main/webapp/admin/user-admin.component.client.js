@@ -118,12 +118,17 @@
     }
 
     function searchUser() {
+        debugger;
+        let roleVal="";
+        if(roleFld.val() !== null){
+            roleVal = roleFld.val()
+        }
         userService.searchUser({
                                    username: usernameFld.val(),
                                    password: passwordFld.val(),
                                    firstName: firstnameFld.val(),
                                    lastName: lastNameFld.val(),
-                                   role: roleFld.val()
+                                   role: roleVal
                                }).then(renderUsers);
     }
 

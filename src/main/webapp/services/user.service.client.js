@@ -60,7 +60,8 @@ function AdminUserServiceClient() {
     }
 
     function searchUser(user, callback) {
-        return fetch(url, {
+        debugger;
+        return fetch(url+'/' + 'search', {
             method: 'POST',
             body: JSON.stringify(user),
             headers: {
