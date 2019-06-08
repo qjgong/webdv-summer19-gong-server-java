@@ -5,9 +5,45 @@ public class Widget {
   private String name;
   private String type;
   private String text;
+  private String items;
+  private String size;
+  private String src;
+  private String herf;
+  private String title;
+  private String listType;
 
+  public String getListType() {
+    return listType;
+  }
 
-// public enum WidgetType {
+  public void setListType(String listType) {
+    this.listType = listType;
+  }
+
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getSrc() {
+    return src;
+  }
+
+  public void setSrc(String src) {
+    this.src = src;
+  }
+
+  public String getHerf() {
+    return herf;
+  }
+
+  public void setHerf(String herf) {
+    this.herf = herf;
+  }
+  // public enum WidgetType {
 //    HEADING, LIST,PARAGRAPH,IMAGE,YOUTUBE,HTML;
 //  }
 
@@ -15,7 +51,7 @@ public class Widget {
     this.id = id;
     this.name = name;
     this.type = type;
-   // this.text = text;
+
   }
 
   public Integer getId() {
@@ -43,6 +79,27 @@ public class Widget {
     this.type = type;
   }
 
+  public String getText() {
+    return text;
+  }
 
+  public void setText(String text) {
+    this.text = text;
+  }
 
+  public String getItems() {
+    return items;
+  }
+
+  public void setItems(String items) {
+    this.items = items;
+  }
+
+  public String getSize() {
+    return size;
+  }
+
+  public void setSize(String size) {
+    this.size = size;
+  }
 }

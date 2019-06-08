@@ -6,24 +6,39 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @RestController
-@CrossOrigin()
+@CrossOrigin("*")
 public class WidgetController {
 
 
   static List<Widget> widgets = new ArrayList<Widget>();
 
   static {
-    widgets.add(new Widget(123, "Widget 1", "HEADING"));
-    widgets.add(new Widget(234, "Widget 2", "LIST"));
-    widgets.add(new Widget(345, "Widget 3", "PARAGRAPH"));
-    widgets.add(new Widget(456, "Widget 4", "IMAGE"));
+    Widget heading = new Widget(123, "Widget 1", "HEADING");
+    heading.setSize("h1");
+    heading.setText("The Document Object Model");
+    widgets.add(heading);
+    Widget list = new Widget(234, "Widget 2", "LIST");
+    list.setItems("Nodes,Attributes,Tag names,IDs,Styles,Classes");
+    list.setListType("unordered");
+    widgets.add(list);
+    Widget paragraph=new Widget(345, "Widget 3", "PARAGRAPH");
+    paragraph.setText("This topic introduces the DOM");
+    widgets.add(paragraph);
+    Widget image=new Widget(456, "Widget 4", "IMAGE");
+    image.setSrc("https://picsum.photos/200");
+    widgets.add(image);
+    Widget link = new Widget(567,"Widget 5", "LINK");
+    link.setTitle("The DOM");
+    link.setHerf("https://en.wikipedia.org/wiki/Document_Object_Model");
 
   }
 
   @PostMapping("/api/widgets")
   public List<Widget> createWidget(@RequestBody Widget widget) {
+    widget.setId((new Random()).nextInt());
     widgets.add(widget);
     return widgets;
   }
@@ -50,14 +65,17 @@ public class WidgetController {
       if (w.getId().equals(wid)) {
         w.setName(newWidget.getName());
         w.setType(newWidget.getType());
+        w.setText(newWidget.getText());
         return w;
       }
     }
     return null;
+
   }
 
   @DeleteMapping("/api/widgets/{widgetId}")
-  public void deleteWidget(@PathVariable("widgetId") Integer wid) {
+  public List<Widget> deleteWidget(@PathVariable("widgetId") Integer wid) {
     widgets.removeIf(w -> w.getId().equals(wid));
+    return widgets;
   }
 }
