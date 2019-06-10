@@ -7,7 +7,7 @@ import java.util.List;
 public class Course {
   private Integer id;
   private String title;
-  private List<Module> modules=new ArrayList<Module>();
+  private List<Module> modules = new ArrayList<Module>();
 
   public List<Module> getModules() {
     return modules;

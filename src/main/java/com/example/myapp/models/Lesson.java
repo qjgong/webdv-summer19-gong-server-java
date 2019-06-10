@@ -6,7 +6,7 @@ import java.util.List;
 public class Lesson {
   private Integer id;
   private String title;
-  private List<Topic> topics=new ArrayList<>();
+  private List<Topic> topics = new ArrayList<>();
 
   public Integer getId() {
     return id;

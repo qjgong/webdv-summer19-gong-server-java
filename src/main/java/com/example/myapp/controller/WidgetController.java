@@ -24,13 +24,13 @@ public class WidgetController {
     list.setItems("Nodes,Attributes,Tag names,IDs,Styles,Classes");
     list.setListType("unordered");
     widgets.add(list);
-    Widget paragraph=new Widget(345, "Widget 3", "PARAGRAPH");
+    Widget paragraph = new Widget(345, "Widget 3", "PARAGRAPH");
     paragraph.setText("This topic introduces the DOM");
     widgets.add(paragraph);
-    Widget image=new Widget(456, "Widget 4", "IMAGE");
+    Widget image = new Widget(456, "Widget 4", "IMAGE");
     image.setSrc("https://picsum.photos/200");
     widgets.add(image);
-    Widget link = new Widget(567,"Widget 5", "LINK");
+    Widget link = new Widget(567, "Widget 5", "LINK");
     link.setTitle("The DOM");
     link.setHref("https://en.wikipedia.org/wiki/Document_Object_Model");
     widgets.add(link);
@@ -82,11 +82,10 @@ public class WidgetController {
 
   @PutMapping("/api/widgets")
   public List<Widget> updateOrder(
-          @RequestBody List<Widget> wts){
-    widgets=wts;
+          @RequestBody List<Widget> wts) {
+    widgets = wts;
     return widgets;
   }
-
 
 
   @DeleteMapping("/api/widgets/{widgetId}")

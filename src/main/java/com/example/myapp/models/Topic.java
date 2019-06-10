@@ -6,7 +6,7 @@ import java.util.List;
 public class Topic {
   private Integer id;
   private String title;
-  private List<Widget> widgets=new ArrayList<>();
+  private List<Widget> widgets = new ArrayList<>();
 
   public Integer getId() {
     return id;

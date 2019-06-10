@@ -22,17 +22,17 @@ import java.util.List;
 @CrossOrigin("*")
 public class CourseController {
 
-static Course cs4500 =new Course(234, "CS4500");
-static Course cs5610 =new Course(123, "CS5610");
-  static Module cs4500W1=new Module(123,"Week 1");
-  static Module cs4500W2=new Module(234,"Week 2");
-  static Lesson lesson1=new Lesson(123,"Lesson 1");
-  static Topic topic1 =new Topic(123,"Topic 1");
-  static List<Widget> widgets=new WidgetController().findAllWidgets();
+  static Course cs4500 = new Course(234, "CS4500");
+  static Course cs5610 = new Course(123, "CS5610");
+  static Module cs4500W1 = new Module(123, "Week 1");
+  static Module cs4500W2 = new Module(234, "Week 2");
+  static Lesson lesson1 = new Lesson(123, "Lesson 1");
+  static Topic topic1 = new Topic(123, "Topic 1");
+  static List<Widget> widgets = new WidgetController().findAllWidgets();
   static List<Course> courses = new ArrayList<Course>();
-  static List<Module> cs4500Modules=new ArrayList<>();
-  static List<Lesson>cs4500W1Lessons=new ArrayList<>();
-  static List<Topic>lesson1Topics=new ArrayList<>();
+  static List<Module> cs4500Modules = new ArrayList<>();
+  static List<Lesson> cs4500W1Lessons = new ArrayList<>();
+  static List<Topic> lesson1Topics = new ArrayList<>();
 
   {
     topic1.setWidgets(widgets);

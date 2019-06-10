@@ -6,7 +6,7 @@ import java.util.List;
 public class Module {
   private Integer id;
   private String title;
-  private List<Lesson> lessons=new ArrayList<>();
+  private List<Lesson> lessons = new ArrayList<>();
 
   public Module(Integer id, String title) {
     this.id = id;

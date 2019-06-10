@@ -33,6 +33,7 @@ public class User {
   public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
+
   public String getLastName() {
     return lastName;
   }
@@ -58,14 +59,14 @@ public class User {
   }
 
 
-  public User(long id, String username, String password,String firstName, String lastName, String role) {
+  public User(long id, String username, String password, String firstName, String lastName, String role) {
     super();
     this.id = id;
     this.username = username;
     this.firstName = firstName;
     this.lastName = lastName;
     this.role = role;
-    this.password=password;
+    this.password = password;
   }
 
   public User() {
