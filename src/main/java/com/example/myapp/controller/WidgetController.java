@@ -32,7 +32,7 @@ public class WidgetController {
     widgets.add(image);
     Widget link = new Widget(567,"Widget 5", "LINK");
     link.setTitle("The DOM");
-    link.setHerf("https://en.wikipedia.org/wiki/Document_Object_Model");
+    link.setHref("https://en.wikipedia.org/wiki/Document_Object_Model");
     widgets.add(link);
 
   }
@@ -67,12 +67,27 @@ public class WidgetController {
         w.setName(newWidget.getName());
         w.setType(newWidget.getType());
         w.setText(newWidget.getText());
+        w.setTitle(newWidget.getTitle());
+        w.setListType(newWidget.getListType());
+        w.setSrc(newWidget.getSrc());
+        w.setSize(newWidget.getSize());
+        w.setItems(newWidget.getItems());
+        w.setHref(newWidget.getHref());
         return w;
       }
     }
     return null;
 
   }
+
+  @PutMapping("/api/widgets")
+  public List<Widget> updateOrder(
+          @RequestBody List<Widget> wts){
+    widgets=wts;
+    return widgets;
+  }
+
+
 
   @DeleteMapping("/api/widgets/{widgetId}")
   public List<Widget> deleteWidget(@PathVariable("widgetId") Integer wid) {

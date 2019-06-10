@@ -8,7 +8,7 @@ public class Widget {
   private String items;
   private String size;
   private String src;
-  private String herf;
+  private String href;
   private String title;
   private String listType;
 
@@ -36,12 +36,12 @@ public class Widget {
     this.src = src;
   }
 
-  public String getHerf() {
-    return herf;
+  public String getHref() {
+    return href;
   }
 
-  public void setHerf(String herf) {
-    this.herf = herf;
+  public void setHref(String href) {
+    this.href = href;
   }
   // public enum WidgetType {
 //    HEADING, LIST,PARAGRAPH,IMAGE,YOUTUBE,HTML;
