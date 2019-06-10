@@ -33,6 +33,7 @@ public class WidgetController {
     Widget link = new Widget(567,"Widget 5", "LINK");
     link.setTitle("The DOM");
     link.setHerf("https://en.wikipedia.org/wiki/Document_Object_Model");
+    widgets.add(link);
 
   }
 
