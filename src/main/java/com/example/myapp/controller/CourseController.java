@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @RestController
 @CrossOrigin("*")
@@ -49,10 +50,10 @@ public class CourseController {
   }
 
   @PostMapping("/api/courses")
-  public Course createCourse(
+  public void createCourse(
           @RequestBody Course course) {
+    course.setId((new Random()).nextInt());
     courses.add(course);
-    return course;
   }
 
   @GetMapping("/api/courses")
