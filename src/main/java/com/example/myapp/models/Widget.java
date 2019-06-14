@@ -1,9 +1,12 @@
 package com.example.myapp.models;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 
 @Entity
-@Table(name="widgets")
+@Table(name = "widgets")
 public class Widget {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +21,26 @@ public class Widget {
   private String href;
   private String title;
   private String listType;
+
+  public Widget(Integer id, String name, String type) {
+    this.id = id;
+    this.name = name;
+    this.type = type;
+
+  }
+
+  @ManyToOne
+  @JsonIgnore
+  private Topic topic;
+
+  @Transient
+  public Topic getTopic() {
+    return topic;
+  }
+
+  public void setTopic(Topic topic) {
+    this.topic = topic;
+  }
 
   public String getListType() {
     return listType;
@@ -53,13 +76,6 @@ public class Widget {
   // public enum WidgetType {
 //    HEADING, LIST,PARAGRAPH,IMAGE,YOUTUBE,HTML;
 //  }
-
-  public Widget(Integer id, String name, String type) {
-    this.id = id;
-    this.name = name;
-    this.type = type;
-
-  }
 
   public Integer getId() {
     return id;

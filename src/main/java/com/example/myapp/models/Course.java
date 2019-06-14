@@ -13,17 +13,17 @@ public class Course {
   private String title;
   private List<Module> modules = new ArrayList<Module>();
 
+  public Course(Integer id, String title) {
+    this.id = id;
+    this.title = title;
+  }
+
   public List<Module> getModules() {
     return modules;
   }
 
   public void setModules(List<Module> modules) {
     this.modules = modules;
-  }
-
-  public Course(Integer id, String title) {
-    this.id = id;
-    this.title = title;
   }
 
   public Integer getId() {
