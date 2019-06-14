@@ -1,19 +1,21 @@
 package com.example.myapp.controller;
 
 import com.example.myapp.models.Widget;
+import com.example.myapp.repositories.WidgetRepository;
 import com.example.myapp.services.WidgetService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+
 
 @RestController
 @CrossOrigin("*")
 public class WidgetController {
 
-
+  @Autowired
+  WidgetRepository repository;
   private WidgetService widgetService;
 
   public WidgetController() {

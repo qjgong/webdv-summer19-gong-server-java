@@ -1,9 +1,18 @@
 package com.example.myapp.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.*;
+
+
+@Entity
+@Table(name="modules")
 public class Module {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
   private String title;
   private List<Lesson> lessons = new ArrayList<>();
@@ -12,7 +21,22 @@ public class Module {
     this.id = id;
     this.title = title;
   }
+  @ManyToOne
+  @JsonIgnore
+  private Course course;
 
+  @Transient
+  public String getCourseTitle() {
+    return course.getTitle();
+  }
+
+  public Course getCourse() {
+    return course;
+  }
+
+  public void setCourse(Course course) {
+    this.course = course;
+  }
   public Integer getId() {
     return id;
   }

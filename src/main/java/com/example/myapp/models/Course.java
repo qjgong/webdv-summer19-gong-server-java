@@ -4,7 +4,11 @@ package com.example.myapp.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.*;
+
+@Entity
 public class Course {
+  @Id
   private Integer id;
   private String title;
   private List<Module> modules = new ArrayList<Module>();
