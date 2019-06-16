@@ -38,9 +38,6 @@ public class Module {
   private Course course;
 
   @Transient
-  public String getCourseTitle() {
-    return course.getTitle();
-  }
 
   public Course getCourse() {
     return course;

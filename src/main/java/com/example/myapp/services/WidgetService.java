@@ -1,6 +1,7 @@
 package com.example.myapp.services;
 
 import com.example.myapp.models.Widget;
+import com.example.myapp.repositories.TopicRepository;
 import com.example.myapp.repositories.WidgetRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,8 @@ import java.util.Random;
 public class WidgetService {
   @Autowired
  WidgetRepository widgetRepository;
-//  @Autowired
-//  TopicRepository topicRepository;
+  @Autowired
+  TopicRepository topicRepository;
 
 
   public List<Widget> createWidget(Widget widget) {
@@ -52,13 +53,13 @@ public class WidgetService {
     return widgetRepository.findAllWidgets();
   }
 
-//  public List<Widget> updateOrder(List<Widget> wts, Integer topicId){
-//
-//
-//    topicRepository.findTopicById(topicId).setWidgets(wts);
-//    return widgetRepository.findAllWidgetsForTopic(topicId);
-//
-//  }
+  public List<Widget> updateOrder(List<Widget> wts, Integer topicId){
+
+
+    topicRepository.findTopicById(topicId).setWidgets(wts);
+    return widgetRepository.findAllWidgetsForTopic(topicId);
+
+  }
 
   public List<Widget> findAllWidgetsForTopic(Integer tid){
     return widgetRepository.findAllWidgetsForTopic(tid);
