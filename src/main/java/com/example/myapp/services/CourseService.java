@@ -1,6 +1,7 @@
 package com.example.myapp.services;
 
 import com.example.myapp.models.*;
+import com.example.myapp.repositories.CourseRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,37 +12,41 @@ import org.springframework.stereotype.Service;
 @Service
 public class CourseService {
   private List<Course> courses;
+  CourseRepository courseRepository;
 
-  public CourseService() {
-    this.courses = new ArrayList<>(setUpCourses());
-  }
+//  public CourseService() {
+//    this.courses = new ArrayList<>(setUpCourses());
+//  }
 
   public void createCourse(Course course) {
     course.setId((new Random()).nextInt());
-    this.courses.add(course);
+    courseRepository.save(course);
   }
 
   public List<Course> findAllCourses() {
-    return this.courses;
-  }
+    return courseRepository.findAllCourses();}
 
   public Course findCourseById(Integer cid) {
-    return this.courses.stream()
-            .filter(c -> c.getId().equals(cid))
-            .collect(Collectors.toList()).get(0);
+//    return this.courses.stream()
+//            .filter(c -> c.getId().equals(cid))
+//            .collect(Collectors.toList()).get(0);
+    return courseRepository.findCourseById(cid);
   }
 
   public Course updateCourse(Integer cid, Course course) {
-    this.courses = this.courses.stream()
-            .map(c -> c.getId().equals(cid) ? course : c)
-            .collect(Collectors.toList());
-    return this.findCourseById(cid);
+//    this.courses = this.courses.stream()
+//            .map(c -> c.getId().equals(cid) ? course : c)
+//            .collect(Collectors.toList());
+//    return this.findCourseById(cid);
+    Course current=courseRepository.findCourseById(cid);
+    current.setModules(course.getModules());
+    current.setTitle(course.getTitle());
+    return current;
   }
 
   public void deleteCourse(Integer cid) {
-    this.courses = this.courses.stream()
-            .filter(c -> !c.getId().equals(cid))
-            .collect(Collectors.toList());
+    Course course=courseRepository.findCourseById(cid);
+   courseRepository.delete(course);
   }
 
 
