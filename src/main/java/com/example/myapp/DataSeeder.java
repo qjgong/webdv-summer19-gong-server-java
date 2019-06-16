@@ -8,6 +8,7 @@ import com.example.myapp.models.Widget;
 import com.example.myapp.services.CourseService;
 import com.example.myapp.services.LessonService;
 import com.example.myapp.services.ModuleService;
+import com.example.myapp.services.TopicService;
 import com.example.myapp.services.WidgetService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,22 +25,25 @@ public class DataSeeder {
   private WidgetService widgetService;
   private ModuleService moduleService;
   private LessonService lessonService;
+  private TopicService topicService;
 
 
   @Autowired
-  public DataSeeder(CourseService courseService, WidgetService widgetService, ModuleService moduleService, LessonService lessonService) {
+  public DataSeeder(CourseService courseService, WidgetService widgetService, ModuleService moduleService, LessonService lessonService, TopicService topicService) {
     this.courseService = courseService;
     this.widgetService = widgetService;
     this.moduleService = moduleService;
     this.lessonService = lessonService;
+    this.topicService = topicService;
 
   }
 
-   @EventListener
+  @EventListener
   public void seed(ContextRefreshedEvent event) {
 //     setUpLessons();
     setUpWidgets();
-
+    setUpTopics();
+    setUpLessons();
     setUpModules();
     setUpCourses();
 
@@ -59,22 +63,20 @@ public class DataSeeder {
 
   }
 
-  private List<Topic> setUpTopics() {
+  private void setUpTopics() {
 
     List<Widget> widgets = widgetService.findAllWidgets();
     Topic dom = new Topic(1, "DOM");
     Topic tags = new Topic(2, "Tags");
     Topic attr = new Topic(3, "Attributes");
     dom.setWidgets(widgets);
-    List<Topic> topics = new ArrayList<>();
-    topics.add(dom);
-    topics.add(tags);
-    topics.add(attr);
-    return topics;
+    topicService.createTopic(dom);
+    topicService.createTopic(tags);
+    topicService.createTopic(attr);
   }
 
   private void setUpLessons() {
-    List<Topic> topics = setUpTopics();
+    List<Topic> topics = topicService.findAllTopics();
     Lesson html = new Lesson(1, "HTML");
     Lesson css = new Lesson(2, "CSS");
     html.setTopics(topics);
