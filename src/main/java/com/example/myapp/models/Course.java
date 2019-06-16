@@ -4,13 +4,16 @@ package com.example.myapp.models;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Course {
   @Id
   private Integer id;
   private String title;
+  @OneToMany
   private List<Module> modules = new ArrayList<Module>();
 
   public Course(Integer id, String title) {

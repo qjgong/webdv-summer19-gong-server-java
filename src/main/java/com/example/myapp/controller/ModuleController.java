@@ -2,8 +2,8 @@ package com.example.myapp.controller;
 
 import com.example.myapp.models.Course;
 import com.example.myapp.models.Module;
-import com.example.myapp.repositories.CourseRepository;
-import com.example.myapp.repositories.ModuleRepository;
+import com.example.myapp.services.CourseService;
+import com.example.myapp.services.ModuleService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,18 +15,19 @@ import java.util.List;
 
 public class ModuleController {
   @Autowired
-  ModuleRepository repository;
+  ModuleService moduleService;
   @Autowired
-  CourseRepository courseRepository;
+  CourseService courseService;
+
 
   @GetMapping("/api/modules")
   public List<Module> findAllModules(){
-    return repository.findAllModules();
+    return moduleService.findAllModules();
   }
   @GetMapping("/api/courses/{cid}/modules")
   public List<Module> findAllModulesForCourse(
           @PathVariable("cid") Integer courseId) {
-    return repository.findAllModulesForCourse(courseId);
+    return moduleService.findAllModulesForCourse(courseId);
   }
 
   @PostMapping("/api/courses/{cid}/modules")
@@ -34,14 +35,15 @@ public class ModuleController {
           @PathVariable("cid") Integer courseId,
           @RequestBody Module newModule
   ) {
-    Course course = courseRepository.findCourseById(courseId);
-    newModule.setCourse(course);
-    repository.save(newModule);
-    return repository.findAllModulesForCourse(courseId);
+    Course course = courseService.findCourseById(courseId);
+   List<Module> modules=course.getModules();
+   modules.add(newModule);
+
+    return moduleService.findAllModulesForCourse(courseId);
   }
 
   @GetMapping("/api/modules/{mid}")
   public Module findModuleById(@PathVariable("mid") Integer id) {
-    return repository.findModuleById(id);
+    return moduleService.findModuleById(id);
   }
 }

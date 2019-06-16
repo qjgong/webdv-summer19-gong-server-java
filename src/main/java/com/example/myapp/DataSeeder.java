@@ -1,8 +1,6 @@
 package com.example.myapp;
 
 import com.example.myapp.services.CourseService;
-import com.example.myapp.services.ModuleService;
-import com.example.myapp.services.WidgetService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;

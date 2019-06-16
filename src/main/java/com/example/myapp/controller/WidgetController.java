@@ -1,21 +1,20 @@
 package com.example.myapp.controller;
 
-import com.example.myapp.models.Widget;
-import com.example.myapp.repositories.WidgetRepository;
-import com.example.myapp.services.WidgetService;
-import com.example.myapp.models.Lesson;
 import com.example.myapp.models.Topic;
-import com.example.myapp.repositories.LessonRepository;
-import com.example.myapp.repositories.TopicRepository;
+import com.example.myapp.models.Widget;
+import com.example.myapp.services.TopicService;
+import com.example.myapp.services.WidgetService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+
 
 
 @RestController
@@ -23,35 +22,36 @@ import java.util.List;
 public class WidgetController {
 
   @Autowired
-  WidgetRepository repository;
+  WidgetService widgetService;
   @Autowired
-  TopicRepository topicRepository;
-
+  TopicService topicService;
+ 
   @GetMapping("/api/widgets")
   public List<Widget> findAllWidgets() {
-    return repository.findAllWidgets();
+    return widgetService.findAllWidgets();
   }
 
   @GetMapping("/api/topics/{tId}/widgets")
   public List<Widget> findAllWidgetsForTopic(
-          @PathVariable("lId") Integer tId) {
-    return repository.findAllWidgetsForTopic(tId);
+          @PathVariable("tId") Integer tId) {
+    return widgetService.findAllWidgetsForTopic(tId);
   }
 
   @PostMapping("/api/topics/{tId}/widgets")
   public List<Widget> addWidgetToTopic(
-          @PathVariable("lId") Integer tId,
+          @PathVariable("tId") Integer tId,
           @RequestBody Widget newWidget
   ) {
-    Topic topic= topicRepository.findTopicById(tId);
-    newWidget.setTopic(topic);
-    repository.save(newWidget);
-    return repository.findAllWidgetsForTopic(tId);
+Topic topic=topicService.findTopicById(tId);
+   List<Widget> widgets=topic.getWidgets();
+   widgets.add(newWidget);
+
+    return widgetService.findAllWidgetsForTopic(tId);
   }
 
   @GetMapping("/api/widgets/{wid}")
   public Widget findWidgetById(@PathVariable("wid") Integer id) {
-    return repository.findWidgetById(id);
+    return widgetService.findWidgetById(id);
   }
 
 //  private WidgetService widgetService;

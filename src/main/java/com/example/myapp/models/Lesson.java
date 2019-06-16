@@ -10,17 +10,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 
 @Entity
-@Table(name="lesons")
+
 public class Lesson {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
   private String title;
+  @OneToMany
   private List<Topic> topics = new ArrayList<>();
 
   public Lesson(Integer id, String title) {

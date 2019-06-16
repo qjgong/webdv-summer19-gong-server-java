@@ -1,47 +1,59 @@
 package com.example.myapp.services;
 
 import com.example.myapp.models.Widget;
+import com.example.myapp.repositories.TopicRepository;
+import com.example.myapp.repositories.WidgetRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
-
+@Service
 public class WidgetService {
-  private List<Widget> widgets;
-
-  public WidgetService() {
-    this.widgets = new ArrayList<>(seed());
-  }
+  @Autowired
+ WidgetRepository widgetRepository;
+  @Autowired
+  TopicRepository topicRepository;
 
 
   public List<Widget> createWidget(Widget widget) {
     widget.setId((new Random()).nextInt());
-    this.widgets.add(widget);
-    return this.widgets;
+   widgetRepository.save(widget);
+   return widgetRepository.findAllWidgets();
   }
 
   public List<Widget> findAllWidgets() {
-    return this.widgets;
+    return widgetRepository.findAllWidgets();
   }
 
   public Widget findWidgetById(Integer wid) {
-    return this.widgets.stream().filter(w -> w.getId().equals(wid)).collect(Collectors.toList()).get(0);
+    return widgetRepository.findWidgetById(wid);
   }
 
   public Widget updateWidget(Integer wid, Widget widget) {
-    this.widgets = this.widgets.stream().map(w -> w.getId().equals(wid) ? widget : w).collect(Collectors.toList());
-    return this.findWidgetById(wid);
+    Widget current = widgetRepository.findWidgetById(wid);
+    current.setName(widget.getName());
+    return widgetRepository.save(current);
   }
 
   public List<Widget> deleteWidget(Integer wid) {
-    this.widgets = this.widgets.stream().filter(w -> !w.getId().equals(wid)).collect(Collectors.toList());
-    return this.widgets;
+    Widget current = widgetRepository.findWidgetById(wid);
+    widgetRepository.delete(current);
+    return widgetRepository.findAllWidgets();
   }
 
-  public List<Widget> updateOrder(List<Widget> wts){
-    this.widgets=wts;
-    return this.widgets;
+  public List<Widget> updateOrder(List<Widget> wts, Integer topicId){
+
+
+    topicRepository.findTopicById(topicId).setWidgets(wts);
+    return widgetRepository.findAllWidgetsForTopic(topicId);
+
+  }
+
+  public List<Widget> findAllWidgetsForTopic(Integer tid){
+    return widgetRepository.findAllWidgetsForTopic(tid);
   }
 
   private List<Widget> seed() {
