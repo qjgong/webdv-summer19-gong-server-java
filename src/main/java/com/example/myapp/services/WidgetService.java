@@ -34,6 +34,15 @@ public class WidgetService {
   public Widget updateWidget(Integer wid, Widget widget) {
     Widget current = widgetRepository.findWidgetById(wid);
     current.setName(widget.getName());
+    current.setType(widget.getType());
+    current.setTitle(widget.getTitle());
+    current.setListType(widget.getListType());
+    current.setSrc(widget.getSrc());
+    current.setHref(widget.getHref());
+    current.setSize(widget.getSize());
+    current.setItems(widget.getItems());
+    current.setText(widget.getText());
+
     return widgetRepository.save(current);
   }
 
