@@ -1,6 +1,8 @@
 package com.example.myapp.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,11 +11,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Course {
+public class Course{
   @Id
   private Integer id;
   private String title;
   @OneToMany
+  @JsonIgnore
   private List<Module> modules = new ArrayList<Module>();
 
   public Course(Integer id, String title) {

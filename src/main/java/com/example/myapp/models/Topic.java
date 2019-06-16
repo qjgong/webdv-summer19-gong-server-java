@@ -22,6 +22,7 @@ public class Topic {
   private Integer id;
   private String title;
   @OneToMany
+  @JsonIgnore
   private List<Widget> widgets = new ArrayList<>();
 
 

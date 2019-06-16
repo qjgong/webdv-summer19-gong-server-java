@@ -22,6 +22,7 @@ public class Module {
   private Integer id;
   private String title;
   @OneToMany
+  @JsonIgnore
   private List<Lesson> lessons = new ArrayList<>();
 
   public Module(Integer id, String title) {

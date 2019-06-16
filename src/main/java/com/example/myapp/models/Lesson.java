@@ -22,6 +22,7 @@ public class Lesson {
   private Integer id;
   private String title;
   @OneToMany
+  @JsonIgnore
   private List<Topic> topics = new ArrayList<>();
 
   public Lesson(Integer id, String title) {
