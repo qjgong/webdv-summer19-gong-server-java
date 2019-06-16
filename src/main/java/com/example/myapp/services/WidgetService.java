@@ -1,7 +1,6 @@
 package com.example.myapp.services;
 
 import com.example.myapp.models.Widget;
-import com.example.myapp.repositories.TopicRepository;
 import com.example.myapp.repositories.WidgetRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +13,8 @@ import java.util.Random;
 public class WidgetService {
   @Autowired
  WidgetRepository widgetRepository;
-  @Autowired
-  TopicRepository topicRepository;
+//  @Autowired
+//  TopicRepository topicRepository;
 
 
   public List<Widget> createWidget(Widget widget) {
@@ -44,39 +43,39 @@ public class WidgetService {
     return widgetRepository.findAllWidgets();
   }
 
-  public List<Widget> updateOrder(List<Widget> wts, Integer topicId){
-
-
-    topicRepository.findTopicById(topicId).setWidgets(wts);
-    return widgetRepository.findAllWidgetsForTopic(topicId);
-
-  }
+//  public List<Widget> updateOrder(List<Widget> wts, Integer topicId){
+//
+//
+//    topicRepository.findTopicById(topicId).setWidgets(wts);
+//    return widgetRepository.findAllWidgetsForTopic(topicId);
+//
+//  }
 
   public List<Widget> findAllWidgetsForTopic(Integer tid){
     return widgetRepository.findAllWidgetsForTopic(tid);
   }
 
-  private List<Widget> seed() {
-    List<Widget> widgets = new ArrayList<>();
-    Widget heading = new Widget(123, "Widget 1", "HEADING");
-    heading.setSize("h1");
-    heading.setText("The Document Object Model");
-    widgets.add(heading);
-    Widget list = new Widget(234, "Widget 2", "LIST");
-    list.setItems("Nodes,Attributes,Tag names,IDs,Styles,Classes");
-    list.setListType("unordered");
-    widgets.add(list);
-    Widget paragraph = new Widget(345, "Widget 3", "PARAGRAPH");
-    paragraph.setText("This topic introduces the DOM");
-    widgets.add(paragraph);
-    Widget image = new Widget(456, "Widget 4", "IMAGE");
-    image.setSrc("https://picsum.photos/200");
-    widgets.add(image);
-    Widget link = new Widget(567, "Widget 5", "LINK");
-    link.setTitle("The DOM");
-    link.setHref("https://en.wikipedia.org/wiki/Document_Object_Model");
-    widgets.add(link);
-    return widgets;
-  }
+//  private List<Widget> seed() {
+//    List<Widget> widgets = new ArrayList<>();
+//    Widget heading = new Widget(123, "Widget 1", "HEADING");
+//    heading.setSize("h1");
+//    heading.setText("The Document Object Model");
+//    widgets.add(heading);
+//    Widget list = new Widget(234, "Widget 2", "LIST");
+//    list.setItems("Nodes,Attributes,Tag names,IDs,Styles,Classes");
+//    list.setListType("unordered");
+//    widgets.add(list);
+//    Widget paragraph = new Widget(345, "Widget 3", "PARAGRAPH");
+//    paragraph.setText("This topic introduces the DOM");
+//    widgets.add(paragraph);
+//    Widget image = new Widget(456, "Widget 4", "IMAGE");
+//    image.setSrc("https://picsum.photos/200");
+//    widgets.add(image);
+//    Widget link = new Widget(567, "Widget 5", "LINK");
+//    link.setTitle("The DOM");
+//    link.setHref("https://en.wikipedia.org/wiki/Document_Object_Model");
+//    widgets.add(link);
+//    return widgets;
+//  }
 
 }

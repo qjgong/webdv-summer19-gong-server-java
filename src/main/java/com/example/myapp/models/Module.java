@@ -28,6 +28,10 @@ public class Module {
     this.id = id;
     this.title = title;
   }
+
+  public Module() {
+  }
+
   @ManyToOne
   @JsonIgnore
   private Course course;

@@ -34,6 +34,9 @@ public class Widget {
 
   }
 
+  public Widget() {
+  }
+
   @ManyToOne
   @JsonIgnore
   private Topic topic;

@@ -29,6 +29,9 @@ public class Lesson {
     this.title = title;
   }
 
+  public Lesson() {
+  }
+
   @ManyToOne
   @JsonIgnore
   private Module module;

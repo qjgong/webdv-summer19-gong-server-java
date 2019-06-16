@@ -35,6 +35,9 @@ public class Topic {
   @JsonIgnore
   private Lesson lesson;
 
+  public Topic() {
+  }
+
 
   @Transient
   public Lesson getLesson() {

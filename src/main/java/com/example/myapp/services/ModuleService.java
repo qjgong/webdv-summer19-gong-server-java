@@ -7,11 +7,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Random;
+
 
 @Service
 public class ModuleService {
   @Autowired
   ModuleRepository moduleRepository;
+
+  public void createModule(Module m) {
+    m.setId((new Random()).nextInt());
+    moduleRepository.save(m);
+  }
+
   public List<Module> findAllModules(){
    return  moduleRepository.findAllModules();
   }

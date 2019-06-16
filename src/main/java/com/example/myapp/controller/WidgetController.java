@@ -23,9 +23,9 @@ public class WidgetController {
 
   @Autowired
   WidgetService widgetService;
-  @Autowired
-  TopicService topicService;
- 
+//  @Autowired
+//  TopicService topicService;
+//
   @GetMapping("/api/widgets")
   public List<Widget> findAllWidgets() {
     return widgetService.findAllWidgets();
@@ -37,17 +37,17 @@ public class WidgetController {
     return widgetService.findAllWidgetsForTopic(tId);
   }
 
-  @PostMapping("/api/topics/{tId}/widgets")
-  public List<Widget> addWidgetToTopic(
-          @PathVariable("tId") Integer tId,
-          @RequestBody Widget newWidget
-  ) {
-Topic topic=topicService.findTopicById(tId);
-   List<Widget> widgets=topic.getWidgets();
-   widgets.add(newWidget);
-
-    return widgetService.findAllWidgetsForTopic(tId);
-  }
+//  @PostMapping("/api/topics/{tId}/widgets")
+//  public List<Widget> addWidgetToTopic(
+//          @PathVariable("tId") Integer tId,
+//          @RequestBody Widget newWidget
+//  ) {
+//Topic topic=topicService.findTopicById(tId);
+//   List<Widget> widgets=topic.getWidgets();
+//   widgets.add(newWidget);
+//
+//    return widgetService.findAllWidgetsForTopic(tId);
+//  }
 
   @GetMapping("/api/widgets/{wid}")
   public Widget findWidgetById(@PathVariable("wid") Integer id) {

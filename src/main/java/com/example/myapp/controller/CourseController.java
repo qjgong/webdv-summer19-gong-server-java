@@ -4,6 +4,7 @@ import com.example.myapp.models.Course;
 import com.example.myapp.services.CourseService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +31,8 @@ public class CourseController {
 
   @GetMapping("/api/courses")
   public List<Course> findAllCourses() {
+    System.out.println(this.courseService.findAllCourses());
+
     return this.courseService.findAllCourses();
   }
 

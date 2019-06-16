@@ -21,6 +21,9 @@ public class Course {
     this.title = title;
   }
 
+  public Course() {
+  }
+
   public List<Module> getModules() {
     return modules;
   }
