@@ -25,7 +25,7 @@ public class CourseService {
 //  }
 
   public void createCourse(Course course) {
-    course.setId((new Random()).nextInt());
+    //course.setId((new Random()).nextInt());
     courseRepository.save(course);
   }
 
@@ -47,7 +47,7 @@ public class CourseService {
     Course current=courseRepository.findCourseById(cid);
     current.setModules(course.getModules());
     current.setTitle(course.getTitle());
-    return current;
+    return courseRepository.save(current);
   }
 
   public void deleteCourse(Integer cid) {

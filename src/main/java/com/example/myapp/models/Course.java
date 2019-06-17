@@ -6,21 +6,25 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Course{
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
   private String title;
-  @OneToMany
-  @JsonIgnore
+  @OneToMany(mappedBy = "course",cascade = CascadeType.REMOVE)
+  //@JsonIgnore
   private List<Module> modules = new ArrayList<Module>();
 
-  public Course(Integer id, String title) {
-    this.id = id;
+  public Course( String title) {
+
     this.title = title;
   }
 

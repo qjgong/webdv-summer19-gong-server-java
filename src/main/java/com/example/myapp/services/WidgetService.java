@@ -1,5 +1,6 @@
 package com.example.myapp.services;
 
+import com.example.myapp.models.Course;
 import com.example.myapp.models.Widget;
 import com.example.myapp.repositories.TopicRepository;
 import com.example.myapp.repositories.WidgetRepository;
@@ -19,7 +20,7 @@ public class WidgetService {
 
 
   public List<Widget> createWidget(Widget widget) {
-    widget.setId((new Random()).nextInt());
+   // widget.setId((new Random()).nextInt());
    widgetRepository.save(widget);
    return widgetRepository.findAllWidgets();
   }
@@ -64,6 +65,8 @@ public class WidgetService {
   public List<Widget> findAllWidgetsForTopic(Integer tid){
     return widgetRepository.findAllWidgetsForTopic(tid);
   }
+
+
 
 //  private List<Widget> seed() {
 //    List<Widget> widgets = new ArrayList<>();

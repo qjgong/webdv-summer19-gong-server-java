@@ -1,5 +1,6 @@
 package com.example.myapp.services;
 
+import com.example.myapp.models.Course;
 import com.example.myapp.models.Lesson;
 import com.example.myapp.repositories.LessonRepository;
 
@@ -20,4 +21,24 @@ public class LessonService {
     return lessonRepository.findAllLessons();
   }
 
+  public List<Lesson> findAllLessonsForModule(Integer mid){
+    return  lessonRepository.findAllLessonsForModule(mid);
+  }
+
+  public Lesson findLessonById(Integer id){
+    return lessonRepository.findLessonById(id);
+  }
+
+  public void deleteLesson(Integer lid) {
+    Lesson lesson=lessonRepository.findLessonById(lid);
+   lessonRepository.delete(lesson);
+  }
+
+  public Lesson updateLesson(Integer lid, Lesson lesson) {
+
+    Lesson current=lessonRepository.findLessonById(lid);
+    current.setTopics(lesson.getTopics());
+    current.setTitle(lesson.getTitle());
+    return lessonRepository.save(current);
+  }
 }

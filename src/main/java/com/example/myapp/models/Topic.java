@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,13 +22,12 @@ public class Topic {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
   private String title;
-  @OneToMany
-  @JsonIgnore
+  @OneToMany(mappedBy = "topic",cascade = CascadeType.REMOVE)
+  //@JsonIgnore
   private List<Widget> widgets = new ArrayList<>();
 
 
-  public Topic(Integer id, String title) {
-    this.id = id;
+  public Topic( String title) {
     this.title = title;
   }
 

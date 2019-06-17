@@ -16,7 +16,7 @@ public class ModuleService {
   ModuleRepository moduleRepository;
 
   public void createModule(Module m) {
-    m.setId((new Random()).nextInt());
+   // m.setId((new Random()).nextInt());
     moduleRepository.save(m);
   }
 
@@ -27,8 +27,20 @@ public class ModuleService {
     return moduleRepository.findAllModulesForCourse(cid);
   }
 
+  public Module updateModule(Integer mid, Module module) {
+
+    Module current=moduleRepository.findModuleById(mid);
+    current.setLessons(module.getLessons());
+    current.setTitle(module.getTitle());
+    return moduleRepository.save(current);
+  }
+
   public Module findModuleById(Integer id){
     return moduleRepository.findModuleById(id);
   }
 
+  public void deleteModule(Integer mid) {
+    Module m=moduleRepository.findModuleById(mid);
+    moduleRepository.delete(m);
+  }
 }

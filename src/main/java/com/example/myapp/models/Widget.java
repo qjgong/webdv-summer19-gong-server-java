@@ -15,7 +15,6 @@ import javax.persistence.Transient;
 public class Widget {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-
   private Integer id;
   private String name;
   private String type;
@@ -27,8 +26,7 @@ public class Widget {
   private String title;
   private String listType;
 
-  public Widget(Integer id, String name, String type) {
-    this.id = id;
+  public Widget(String name, String type) {
     this.name = name;
     this.type = type;
 

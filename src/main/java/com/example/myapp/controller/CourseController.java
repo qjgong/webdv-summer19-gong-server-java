@@ -31,7 +31,6 @@ public class CourseController {
 
   @GetMapping("/api/courses")
   public List<Course> findAllCourses() {
-    System.out.println(this.courseService.findAllCourses());
 
     return this.courseService.findAllCourses();
   }

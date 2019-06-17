@@ -1,5 +1,6 @@
 package com.example.myapp.services;
 
+import com.example.myapp.models.Course;
 import com.example.myapp.models.Topic;
 import com.example.myapp.repositories.TopicRepository;
 
@@ -12,19 +13,25 @@ import java.util.List;
 public class TopicService {
   @Autowired
   TopicRepository topicRepository;
-public Topic createTopic(Topic topic){
-  return topicRepository.save(topic);
-}
 
-  public List<Topic> findAllTopics(){
-    return  topicRepository.findAllTopics();
+  public Topic createTopic(Topic topic) {
+    return topicRepository.save(topic);
   }
-  public List<Topic> findTopicByLessonId(Integer lessonId){
+
+  public List<Topic> findAllTopics() {
+    return topicRepository.findAllTopics();
+  }
+
+  public List<Topic> findTopicByLessonId(Integer lessonId) {
     return topicRepository.findAllTopicsForLesson(lessonId);
   }
 
-  public Topic findTopicById(Integer id){
+  public Topic findTopicById(Integer id) {
     return topicRepository.findTopicById(id);
   }
 
+  public void deleteTopic(Integer tid) {
+    Topic topic = topicRepository.findTopicById(tid);
+    topicRepository.delete(topic);
+  }
 }
