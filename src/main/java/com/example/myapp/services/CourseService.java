@@ -1,18 +1,12 @@
 package com.example.myapp.services;
 
 import com.example.myapp.models.Course;
-import com.example.myapp.models.Lesson;
-import com.example.myapp.models.Module;
-import com.example.myapp.models.Topic;
-import com.example.myapp.models.Widget;
 import com.example.myapp.repositories.CourseRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 @Service
 public class CourseService {

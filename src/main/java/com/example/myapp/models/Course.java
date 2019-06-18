@@ -1,8 +1,6 @@
 package com.example.myapp.models;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.util.ArrayList;
 import java.util.List;
 

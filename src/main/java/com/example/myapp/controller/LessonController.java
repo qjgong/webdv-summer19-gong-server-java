@@ -2,8 +2,6 @@ package com.example.myapp.controller;
 
 import com.example.myapp.models.Lesson;
 import com.example.myapp.models.Module;
-import com.example.myapp.repositories.LessonRepository;
-import com.example.myapp.repositories.ModuleRepository;
 import com.example.myapp.services.LessonService;
 import com.example.myapp.services.ModuleService;
 

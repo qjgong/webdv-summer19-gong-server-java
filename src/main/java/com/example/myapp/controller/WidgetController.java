@@ -67,8 +67,6 @@ public class WidgetController {
   public List<Widget> updateOrder(
           @PathVariable("tId") Integer tId,
           @RequestBody List<Widget> wts) {
-
-
     return widgetService.updateOrder(wts,tId);
   }
 
