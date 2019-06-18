@@ -22,7 +22,7 @@ public class TopicService {
     return topicRepository.findAllTopics();
   }
 
-  public List<Topic> findTopicByLessonId(Integer lessonId) {
+  public List<Topic> findAllTopicsForLesson(Integer lessonId) {
     return topicRepository.findAllTopicsForLesson(lessonId);
   }
 
@@ -34,4 +34,14 @@ public class TopicService {
     Topic topic = topicRepository.findTopicById(tid);
     topicRepository.delete(topic);
   }
+
+  public Topic updateTopic(Integer id,Topic topic) {
+
+   Topic current=topicRepository.findTopicById(id);
+    current.setWidgets(topic.getWidgets());
+    current.setTitle(topic.getTitle());
+    return topicRepository.save(current);
+  }
+
+
 }

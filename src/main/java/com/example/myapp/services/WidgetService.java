@@ -1,6 +1,7 @@
 package com.example.myapp.services;
 
 import com.example.myapp.models.Course;
+import com.example.myapp.models.Topic;
 import com.example.myapp.models.Widget;
 import com.example.myapp.repositories.TopicRepository;
 import com.example.myapp.repositories.WidgetRepository;
@@ -57,7 +58,12 @@ public class WidgetService {
   public List<Widget> updateOrder(List<Widget> wts, Integer topicId){
 
 
-    topicRepository.findTopicById(topicId).setWidgets(wts);
+    Topic topic=topicRepository.findTopicById(topicId);
+   for(Widget w:wts){
+     w.setTopic(topic);
+     widgetRepository.save(w);
+   }
+    List<Widget> widgets=widgetRepository.findAllWidgetsForTopic(topicId);
     return widgetRepository.findAllWidgetsForTopic(topicId);
 
   }

@@ -67,7 +67,9 @@ public class WidgetController {
   public List<Widget> updateOrder(
           @PathVariable("tId") Integer tId,
           @RequestBody List<Widget> wts) {
-    return this.widgetService.updateOrder(wts,tId);
+
+
+    return widgetService.updateOrder(wts,tId);
   }
 
   @DeleteMapping("/api/widgets/{widgetId}")

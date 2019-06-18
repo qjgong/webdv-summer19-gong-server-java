@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+
 @RestController
 @CrossOrigin("*")
 public class ModuleController {
@@ -29,10 +30,12 @@ public class ModuleController {
           @RequestBody Module m) {
     moduleService.createModule(m);
   }
+
   @GetMapping("/api/modules")
-  public List<Module> findAllModules(){
+  public List<Module> findAllModules() {
     return moduleService.findAllModules();
   }
+
   @GetMapping("/api/courses/{cid}/modules")
   public List<Module> findAllModulesForCourse(
           @PathVariable("cid") Integer courseId) {
@@ -45,8 +48,8 @@ public class ModuleController {
           @RequestBody Module newModule
   ) {
     Course course = courseService.findCourseById(courseId);
- newModule.setCourse(course);
- moduleService.createModule(newModule);
+    newModule.setCourse(course);
+    moduleService.createModule(newModule);
 
     return moduleService.findAllModulesForCourse(courseId);
   }
