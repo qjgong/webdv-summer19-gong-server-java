@@ -64,8 +64,7 @@ public class WidgetService {
      widgetRepository.save(w);
    }
     List<Widget> widgets=widgetRepository.findAllWidgetsForTopic(topicId);
-    return widgetRepository.findAllWidgetsForTopic(topicId);
-
+    return widgets;
   }
 
   public List<Widget> findAllWidgetsForTopic(Integer tid){
