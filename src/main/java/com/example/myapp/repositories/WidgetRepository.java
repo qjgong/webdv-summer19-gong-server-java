@@ -10,13 +10,13 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface WidgetRepository extends CrudRepository<Widget, Integer> {
-  @Query("select widget from Widget widget")
-  public List<Widget> findAllWidgets();
-
-  @Query("select widget from Widget widget where widget.topic.id = :tid")
-  public List<Widget> findAllWidgetsForTopic(@Param("tid") Integer tid);
-
-
-  @Query("select widget from Widget widget where widget.id=:wid")
-  public Widget findWidgetById(@Param("wid") Integer id);
+//  @Query("select widget from Widget widget")
+//  public List<Widget> findAllWidgets();
+//
+//  @Query("select widget from Widget widget where widget.topic.id = :tid")
+//  public List<Widget> findAllWidgetsForTopic(@Param("tid") Integer tid);
+//
+//
+//  @Query("select widget from Widget widget where widget.id=:wid")
+//  public Widget findWidgetById(@Param("wid") Integer id);
 }

@@ -11,16 +11,16 @@ import java.util.List;
 @Repository
 public interface LessonRepository extends CrudRepository<Lesson, Integer> {
 
-
-  @Query("select lesson from Lesson lesson")
-  public List<Lesson> findAllLessons();
-
-
-  @Query("select lesson from Lesson lesson where lesson.module.id = :mid")
-  public List<Lesson> findAllLessonsForModule(@Param("mid") Integer mid);
-
-  @Query("select lesson from Lesson lesson where lesson.id = :id")
-  public Lesson findLessonById(@Param("id") Integer id);
+//
+//   @Query("select lesson from Lesson lesson")
+//  public List<Lesson> findAllLessons();
+//
+//
+//  @Query("select lesson from Lesson lesson where lesson.module.id = :mid")
+//  public List<Lesson> findAllLessonsForModule(@Param("mid") Integer mid);
+//
+//  @Query("select lesson from Lesson lesson where lesson.id = :id")
+//  public Lesson findLessonById(@Param("id") Integer id);
 
 
 }

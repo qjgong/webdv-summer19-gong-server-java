@@ -20,19 +20,19 @@ public class WidgetService {
   public List<Widget> createWidget(Widget widget) {
    // widget.setId((new Random()).nextInt());
    widgetRepository.save(widget);
-   return widgetRepository.findAllWidgets();
+   return (List<Widget>)widgetRepository.findAll();
   }
 
   public List<Widget> findAllWidgets() {
-    return widgetRepository.findAllWidgets();
+    return (List<Widget>)widgetRepository.findAll();
   }
 
   public Widget findWidgetById(Integer wid) {
-    return widgetRepository.findWidgetById(wid);
+    return widgetRepository.findById(wid).get();
   }
 
   public Widget updateWidget(Integer wid, Widget widget) {
-    Widget current = widgetRepository.findWidgetById(wid);
+    Widget current = widgetRepository.findById(wid).get();
     current.setName(widget.getName());
     current.setType(widget.getType());
     current.setTitle(widget.getTitle());
@@ -47,50 +47,25 @@ public class WidgetService {
   }
 
   public List<Widget> deleteWidget(Integer wid) {
-    Widget current = widgetRepository.findWidgetById(wid);
+    Widget current = widgetRepository.findById(wid).get();
     widgetRepository.delete(current);
-    return widgetRepository.findAllWidgets();
+    return(List<Widget>) widgetRepository.findAll();
   }
 
   public List<Widget> updateOrder(List<Widget> wts, Integer topicId){
 
-
-    Topic topic=topicRepository.findTopicById(topicId);
+    Topic topic=topicRepository.findById(topicId).get();
    for(Widget w:wts){
      w.setTopic(topic);
      widgetRepository.save(w);
    }
-    List<Widget> widgets=widgetRepository.findAllWidgetsForTopic(topicId);
+    List<Widget> widgets=topicRepository.findById(topicId).get().getWidgets();
     return widgets;
   }
 
   public List<Widget> findAllWidgetsForTopic(Integer tid){
-    return widgetRepository.findAllWidgetsForTopic(tid);
+    return topicRepository.findById(tid).get().getWidgets();
   }
 
-
-
-//  private List<Widget> seed() {
-//    List<Widget> widgets = new ArrayList<>();
-//    Widget heading = new Widget(123, "Widget 1", "HEADING");
-//    heading.setSize("h1");
-//    heading.setText("The Document Object Model");
-//    widgets.add(heading);
-//    Widget list = new Widget(234, "Widget 2", "LIST");
-//    list.setItems("Nodes,Attributes,Tag names,IDs,Styles,Classes");
-//    list.setListType("unordered");
-//    widgets.add(list);
-//    Widget paragraph = new Widget(345, "Widget 3", "PARAGRAPH");
-//    paragraph.setText("This topic introduces the DOM");
-//    widgets.add(paragraph);
-//    Widget image = new Widget(456, "Widget 4", "IMAGE");
-//    image.setSrc("https://picsum.photos/200");
-//    widgets.add(image);
-//    Widget link = new Widget(567, "Widget 5", "LINK");
-//    link.setTitle("The DOM");
-//    link.setHref("https://en.wikipedia.org/wiki/Document_Object_Model");
-//    widgets.add(link);
-//    return widgets;
-//  }
 
 }

@@ -10,13 +10,13 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface ModuleRepository extends CrudRepository<Module, Integer> {
-  @Query("select module from Module module")
-  public List<Module> findAllModules();
-
-  // select module from Module m, Course c where m.course_id = c.id
-  @Query("select module from Module module where module.course.id = :cid")
-  public List<Module> findAllModulesForCourse(@Param("cid") Integer courseId);
-
-  @Query("select module from Module module where module.id = :id")
-  public Module findModuleById(@Param("id") Integer id);
+//  @Query("select module from Module module")
+//  public List<Module> findAllModules();
+//
+//  // select module from Module m, Course c where m.course_id = c.id
+//  @Query("select module from Module module where module.course.id = :cid")
+//  public List<Module> findAllModulesForCourse(@Param("cid") Integer courseId);
+//
+//  @Query("select module from Module module where module.id = :id")
+//  public Module findModuleById(@Param("id") Integer id);
 }
