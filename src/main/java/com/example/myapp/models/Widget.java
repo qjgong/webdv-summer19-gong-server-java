@@ -25,6 +25,8 @@ public class Widget {
   private String href;
   private String title;
   private String listType;
+  private Integer ord;
+
 
   public Widget(String name, String type) {
     this.name = name;
@@ -130,5 +132,12 @@ public class Widget {
 
   public void setSize(String size) {
     this.size = size;
+  }
+  public Integer getOrd() {
+    return ord;
+  }
+
+  public void setOrd(Integer ord) {
+    this.ord = ord;
   }
 }

@@ -15,7 +15,6 @@ import javax.persistence.OneToMany;
 
 
 @Entity
-
 public class Module {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

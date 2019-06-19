@@ -49,19 +49,24 @@ public class DataSeeder {
     Widget heading = new Widget( "Widget 1", "HEADING");
     heading.setSize("h1");
     heading.setText("The Document Object Model");
+    heading.setOrd(1);
     widgets.add(heading);
     Widget list = new Widget( "Widget 2", "LIST");
     list.setItems("Nodes,Attributes,Tag names,IDs,Styles,Classes");
     list.setListType("unordered");
+    list.setOrd(2);
     widgets.add(list);
     Widget paragraph = new Widget( "Widget 3", "PARAGRAPH");
     paragraph.setText("This topic introduces the DOM");
+    paragraph.setOrd(3);
     widgets.add(paragraph);
     Widget image = new Widget("Widget 4", "IMAGE");
     image.setSrc("https://picsum.photos/200");
+    image.setOrd(4);
     widgets.add(image);
     Widget link = new Widget("Widget 5", "LINK");
     link.setTitle("The DOM");
+    link.setOrd(5);
     link.setHref("https://en.wikipedia.org/wiki/Document_Object_Model");
     widgets.add(link);
 

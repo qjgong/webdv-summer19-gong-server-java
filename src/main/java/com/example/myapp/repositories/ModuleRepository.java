@@ -2,12 +2,8 @@ package com.example.myapp.repositories;
 
 import com.example.myapp.models.Module;
 
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 @Repository
 public interface ModuleRepository extends CrudRepository<Module, Integer> {
 //  @Query("select module from Module module")
